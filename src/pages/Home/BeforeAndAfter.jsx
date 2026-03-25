@@ -36,33 +36,94 @@ export default function BeforeAndAfter() {
         <div className="relative">
 
           {/* BEFORE */}
-          {!active && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="h-[500px] rounded-2xl border border-white/10 bg-[#081B34] flex items-center justify-center relative overflow-hidden"
-            >
-              {/* Floating cards */}
-              <div className="absolute rotate-[-12deg] bg-red-500/90 px-4 py-2 rounded-lg text-sm">
-                Risk Blindspots
-              </div>
+     {!active && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="h-[520px] rounded-2xl border border-white/10 bg-[#081B34] flex items-center justify-center relative overflow-hidden"
+  >
+    {/* Background Grid */}
+    <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-              <div className="absolute top-10 right-20 rotate-12 bg-yellow-400 text-black px-4 py-2 rounded-lg text-sm">
-                New message from sales
-              </div>
+    {/* Glow Blob */}
+    <div className="absolute inset-0 flex items-center justify-center z-0">
+      <div className="w-[650px] h-[320px] bg-[#0E2A52] opacity-50 blur-3xl rounded-full" />
+    </div>
 
-              <div className="absolute bottom-10 left-10 rotate-[-8deg] bg-purple-600 px-4 py-2 rounded-lg text-sm">
-                Slack confusion
-              </div>
+    {/* Top Banner */}
+    <div className="absolute top-6 left-1/2 -translate-x-1/2 rotate-[-3deg] bg-[#1E3A5F]/80 backdrop-blur-md px-6 py-2 rounded-full text-xs shadow z-20">
+      Endless Audit & Compliance Firefighting
+    </div>
 
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-3 rounded-xl shadow-xl">
-                SOC 2 audit delayed
-              </div>
+    {/* Center Message (MAIN FOCUS) */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black px-7 py-4 rounded-xl shadow-2xl text-lg font-semibold z-30">
+      SOC 2 audit delayed by 2 months
+    </div>
 
-              {/* Background grid */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
-            </motion.div>
-          )}
+    {/* Email Card */}
+    <div className="absolute top-12 right-32 rotate-[8deg] bg-[#1E3A5F]/90 backdrop-blur px-5 py-3 rounded-xl text-sm shadow-lg w-[260px] z-20">
+      <p className="text-xs text-gray-300">📩 Auditor Email</p>
+      <p className="text-xs mt-1 text-gray-400">
+        Missing employee data retention policy
+      </p>
+    </div>
+
+    {/* Sales Pressure */}
+    <div className="absolute top-32 right-10 rotate-[5deg] bg-yellow-400 text-black px-5 py-3 rounded-xl text-sm shadow-xl w-[260px] z-20">
+      <p className="font-semibold">Sales Escalation</p>
+      <p className="text-xs mt-1">
+        Security questionnaire due tomorrow
+      </p>
+    </div>
+
+    {/* Slack Chaos */}
+    <div className="absolute bottom-20 left-16 rotate-[7deg] bg-purple-700/90 backdrop-blur px-5 py-4 rounded-xl text-xs shadow-lg w-[240px] z-20">
+      <p className="text-gray-200">Robert • 3h ago</p>
+      <p className="mt-1">Enable S3 deletion protection</p>
+
+      <p className="text-gray-400 mt-2">Julia • 3h ago</p>
+      <p>Which accounts?</p>
+    </div>
+
+    {/* Ops Request */}
+    <div className="absolute bottom-24 right-20 rotate-[-7deg] bg-cyan-600/90 px-5 py-3 rounded-xl text-sm shadow-lg w-[260px] z-20">
+      <p>Urgent: AWS IAM review needed</p>
+      <p className="text-xs mt-1 text-cyan-100">
+        Last sent during ISO 27001 audit
+      </p>
+    </div>
+
+    {/* Risk Alert */}
+    <div className="absolute left-20 top-44 rotate-[-6deg] bg-red-500 px-4 py-2 rounded-lg text-xs shadow z-20">
+      Risk Blindspots
+    </div>
+
+    {/* Secondary Alerts */}
+    <div className="absolute top-1/3 left-10 rotate-[6deg] bg-orange-400 text-black px-4 py-2 rounded-lg text-xs shadow z-20">
+      Vendor not assessed
+    </div>
+
+    <div className="absolute bottom-16 right-1/3 rotate-[4deg] bg-pink-500 px-4 py-2 rounded-lg text-xs shadow z-20">
+      Policy outdated
+    </div>
+
+    {/* Noise Pills (LOW IMPORTANCE) */}
+    <div className="absolute top-1/2 left-1/4 rotate-[3deg] bg-white/10 px-3 py-1 rounded-full text-[10px] z-10">
+      Compliance overload
+    </div>
+
+    <div className="absolute top-1/2 right-1/3 rotate-[-3deg] bg-white/10 px-3 py-1 rounded-full text-[10px] z-10">
+      Siloed data
+    </div>
+
+    <div className="absolute bottom-32 left-1/2 rotate-[5deg] bg-white/10 px-3 py-1 rounded-full text-[10px] z-10">
+      Failing controls
+    </div>
+
+    {/* Subtle vignette for focus */}
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#06152D]/60 z-10" />
+  </motion.div>
+)}
 
           {/* AFTER */}
          

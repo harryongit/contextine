@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/logo3.png";
 import Button from "./Button";
@@ -21,29 +22,29 @@ export default function Header() {
 
   const menus = {
     Platform: [
-      { icon: Layers, title: "Overview", desc: "Platform capabilities" },
-      { icon: Cpu, title: "Automation", desc: "Smart workflows" },
-      { icon: Database, title: "Integrations", desc: "Connect tools easily" },
+      { icon: Layers, title: "Overview", desc: "Platform capabilities", href: "#" },
+      { icon: Cpu, title: "Automation", desc: "Smart workflows", href: "#" },
+      { icon: Database, title: "Integrations", desc: "Connect tools easily", href: "#" },
     ],
     Solutions: [
-      { icon: Briefcase, title: "Enterprise", desc: "Scale your business" },
-      { icon: Users, title: "Teams", desc: "Collaborate efficiently" },
-      { icon: Shield, title: "Compliance", desc: "Stay audit-ready" },
+      { icon: Briefcase, title: "Enterprise", desc: "Scale your business", href: "#" },
+      { icon: Users, title: "Teams", desc: "Collaborate efficiently", href: "#" },
+      { icon: Shield, title: "Compliance", desc: "Stay audit-ready", href: "#" },
     ],
     Customers: [
-      { icon: Users, title: "Case Studies", desc: "Real success stories" },
-      { icon: Users, title: "Testimonials", desc: "What users say" },
+      { icon: Users, title: "Case Studies", desc: "Real success stories", href: "#" },
+      { icon: Users, title: "Testimonials", desc: "What users say", href: "#" },
     ],
     Resources: [
-      { icon: BookOpen, title: "Docs", desc: "Developer guides" },
-      { icon: BookOpen, title: "Blog", desc: "Latest insights" },
-      { icon: BookOpen, title: "Help Center", desc: "Get support" },
+      { icon: BookOpen, title: "Docs", desc: "Developer guides", href: "/docs" },
+      { icon: BookOpen, title: "Blog", desc: "Latest insights", href: "/blog" },
+
     ],
     Company: [
-      { icon: Info, title: "About", desc: "Who we are" },
-      { icon: Briefcase, title: "Careers", desc: "Join our team" },
-      { icon: Shield, title: "Security", desc: "Our commitment" },
-      { icon: Newspaper, title: "Newsroom", desc: "Latest updates" },
+      { icon: Info, title: "About", desc: "Who we are", href: "/about" },
+      { icon: Briefcase, title: "Careers", desc: "Join our team", href: "/careers" },
+      { icon: Shield, title: "Security", desc: "Our commitment", href: "/security" },
+
     ],
   };
 
@@ -53,10 +54,10 @@ export default function Header() {
       <div className="mx-auto max-w-screen-xl px-4">
         <div className="flex h-16 items-center justify-between">
 
-        <div className="flex items-center gap-2">
-  <img src={logo} className="h-10 w-10 object-contain" alt="logo" />
-  <span className="text-3xl font-bold leading-none">Contextine</span>
-</div>
+          <div className="flex items-center gap-2">
+            <img src={logo} className="h-10 w-10 object-contain" alt="logo" />
+            <span className="text-3xl font-bold leading-none">Contextine</span>
+          </div>
           {/* Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {Object.keys(menus).map((menu) => (
@@ -104,9 +105,10 @@ export default function Header() {
               {menus[activeMenu].map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div
+                  <Link
                     key={i}
-                    className="flex gap-4 group cursor-pointer"
+                    to={item.href || "#"}
+                    className="flex gap-4 group cursor-pointer no-underline"
                   >
                     <Icon className="mt-1 text-accent group-hover:scale-110 transition" />
                     <div>
@@ -117,7 +119,7 @@ export default function Header() {
                         {item.desc}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
 
