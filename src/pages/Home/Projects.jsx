@@ -14,7 +14,7 @@ const easeInOut = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) /
    IMAGES
 ════════════════════════════════════════ */
 const mainimage = "https://images.klipfolio.com/website/public/bf9c6fbb-06bf-4f1d-88a7-d02b70902bd1/data-dashboard.png";
-const FR = "https://www.workiva.com/sites/workiva/files/styles/16_9_rectangle_2384x1341/public/images/platform-graphics/wk-home-hero-fr_.png.webp";
+const FR = mainimage;
 const GRC = "https://www.workiva.com/sites/workiva/files/styles/16_9_rectangle_2384x1341/public/images/platform-graphics/wk-home-hero-grc.png.webp";
 const ESG = "https://www.workiva.com/sites/workiva/files/styles/16_9_rectangle_1088x612/public/images/platform-graphics/wk-home-hero-sustainability.png.webp";
 
@@ -22,87 +22,47 @@ const ESG = "https://www.workiva.com/sites/workiva/files/styles/16_9_rectangle_1
    SUBCOMPONENTS
 ════════════════════════════════════════ */
 const MacDots = () => (
-  <div style={{ display: "flex", gap: 5, flexShrink: 0 }}>
+  <div className="flex gap-1">
     {["#ff5f57", "#febc2e", "#28c840"].map(c => (
-      <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
+      <div key={c} className="w-2.5 h-2.5 rounded-full" style={{ background: c }} />
     ))}
   </div>
 );
 
 const ChromeBar = ({ url }) => (
-  <div style={{
-    background: "#1e2433", padding: "9px 14px",
-    display: "flex", alignItems: "center", gap: 10,
-  }}>
+  <div className="flex items-center gap-2.5 bg-[#1e2433] p-2.5">
     <MacDots />
-    <div style={{
-      flex: 1, background: "#252d40", borderRadius: 5,
-      padding: "4px 12px", maxWidth: 300,
-    }}>
-      <span style={{ fontSize: 10, color: "rgba(255,255,255,.32)", fontFamily: "'DM Sans',sans-serif" }}>
-        {url}
-      </span>
+    <div className="flex-1 bg-[#252d40] rounded px-3 py-1 max-w-[300px]">
+      <span className="text-[10px] text-white/30 font-sans">{url}</span>
     </div>
-  </div>
-);
-
-/* W icon - exact Workiva colors */
-const WIcon = () => (
-  <div style={{
-    width: 80, height: 80, borderRadius: 16, overflow: "hidden",
-    position: "relative", flexShrink: 0,
-    boxShadow: "0 8px 32px rgba(0,0,0,.35)",
-  }}>
-    <div style={{ position: "absolute", inset: 0, background: "#1a1a1a" }} />
-    <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "32%", background: "#34a853" }} />
-    <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "32%", background: "#4285f4" }} />
-    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "26%", background: "#fbbc04" }} />
-
   </div>
 );
 
 const AIPanel = () => (
-  <div style={{
-    width: 292, background: "#fff", borderRadius: 14,
-    border: "1px solid #e5e7eb",
-    boxShadow: "0 20px 60px rgba(0,0,0,.28)",
-    overflow: "hidden", fontFamily: "'DM Sans',sans-serif",
-  }}>
-    <div style={{
-      background: "#f9fafb", padding: "11px 16px",
-      borderBottom: "1px solid #e5e7eb",
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <div style={{
-          width: 22, height: 22, borderRadius: 6,
-          background: "linear-gradient(135deg,#1a73e8,#34a853)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <span style={{ color: "#fff", fontSize: 10, fontWeight: 900 }}>W</span>
+  <div className="w-[292px] bg-white rounded-xl border border-gray-200 shadow-2xl overflow-hidden font-sans">
+    <div className="flex items-center justify-between p-3 bg-gray-50 border-b border-gray-200">
+      <div className="flex items-center gap-2">
+        <div className="w-5 h-5 rounded bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
+          <span className="text-white text-[10px] font-bold">W</span>
         </div>
-        <span style={{ fontSize: 13, fontWeight: 700, color: "#111" }}>Workiva AI</span>
+        <span className="text-[13px] font-bold text-gray-900">Workiva AI</span>
       </div>
-      <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-        <span style={{ fontSize: 12, color: "#1a73e8", fontWeight: 600, cursor: "pointer" }}>Clear chat</span>
-        <span style={{ fontSize: 15, color: "#9ca3af" }}>✕</span>
+      <div className="flex gap-2 items-center">
+        <span className="text-blue-600 font-semibold text-[12px] cursor-pointer">Clear chat</span>
+        <span className="text-gray-400 text-[15px]">✕</span>
       </div>
     </div>
-    <div style={{ padding: "14px 16px" }}>
-      <div style={{ fontSize: 11, color: "#6b7280", marginBottom: 10 }}>
-        Intelligence: <span style={{ color: "#1a73e8", fontWeight: 600 }}>General ▾</span>
+    <div className="p-3">
+      <div className="text-[11px] text-gray-500 mb-2">
+        Intelligence: <span className="text-blue-600 font-semibold">General ▾</span>
       </div>
-      <div style={{
-        background: "#f3f4f6", borderRadius: 10,
-        padding: "12px 14px", marginBottom: 8,
-        display: "flex", gap: 10, alignItems: "flex-start",
-      }}>
-        <p style={{ flex: 1, fontSize: 12, color: "#374151", lineHeight: 1.6, margin: 0 }}>
-          Referencing the financial data in this table @Avikro_Financials, draft a narrative highlighting significant year-over-year changes.
+      <div className="bg-gray-100 rounded-lg p-3 mb-2 flex gap-2 items-start">
+        <p className="flex-1 text-[12px] text-gray-700 leading-6 m-0">
+          Referencing the financial data in this table, draft a narrative highlighting significant year-over-year changes.
         </p>
-        <span style={{ color: "#9ca3af", fontSize: 18, flexShrink: 0 }}>▷</span>
+        <span className="text-gray-400 text-[18px] flex-shrink-0">▷</span>
       </div>
-      <p style={{ fontSize: 10, color: "#9ca3af", textAlign: "center", margin: 0 }}>
+      <p className="text-[10px] text-gray-400 text-center m-0">
         Content generated by AI. Review for accuracy. ⓘ
       </p>
     </div>
@@ -110,14 +70,9 @@ const AIPanel = () => (
 );
 
 const ControlTable = () => (
-  <div style={{
-    width: 430, background: "#fff", borderRadius: 14,
-    border: "2.5px solid #22c55e",
-    boxShadow: "0 16px 52px rgba(0,0,0,.28)",
-    overflow: "hidden", fontFamily: "'DM Sans',sans-serif",
-  }}>
-    <div style={{ background: "#f0fdf4", padding: "10px 18px", borderBottom: "1px solid #bbf7d0" }}>
-      <span style={{ fontSize: 11.5, fontWeight: 700, color: "#15803d" }}>
+  <div className="w-[430px] bg-white rounded-xl border-2.5 border-green-500 shadow-2xl overflow-hidden font-sans">
+    <div className="bg-green-50 p-3 border-b border-green-100">
+      <span className="text-[11.5px] font-bold text-green-800">
         ↑ Control ID &nbsp;&nbsp; Description &nbsp;&nbsp; Process &nbsp;&nbsp; Sub proc…
       </span>
     </div>
@@ -127,15 +82,11 @@ const ControlTable = () => (
       ["FA.003", "The Sr. Director of…", "FP&A…", "Fixed As…"],
       ["SUS.CSR.004", "Physical climate ri…", "Sustainability…", "Corporat…"],
     ].map(([id, d, pr, s], i) => (
-      <div key={i} style={{
-        display: "grid", gridTemplateColumns: "108px 1fr 108px 76px",
-        padding: "9px 18px", borderBottom: i < 3 ? "1px solid #f0fdf4" : "none",
-        alignItems: "center",
-      }}>
-        <span style={{ fontSize: 11.5, color: "#1a73e8", fontWeight: 600 }}>{id}</span>
-        <span style={{ fontSize: 11, color: "#374151" }}>{d}</span>
-        <span style={{ fontSize: 11, color: "#374151" }}>{pr}</span>
-        <span style={{ fontSize: 11, color: "#374151" }}>{s}</span>
+      <div key={i} className="grid grid-cols-[108px_1fr_108px_76px] items-center p-2.5 border-b border-green-50">
+        <span className="text-blue-600 font-semibold text-[11.5px]">{id}</span>
+        <span className="text-gray-700 text-[11px]">{d}</span>
+        <span className="text-gray-700 text-[11px]">{pr}</span>
+        <span className="text-gray-700 text-[11px]">{s}</span>
       </div>
     ))}
   </div>
@@ -144,13 +95,12 @@ const ControlTable = () => (
 /* ════════════════════════════════════════
    MAIN APP
 ════════════════════════════════════════ */
-export default function Projects() {
+export default function DashboardScrollUI() {
   const containerRef = useRef(null);
   const rawRef = useRef(0);
   const smoothRef = useRef(0);
   const rafRef = useRef(null);
   const [p, setP] = useState(0);
-  const [navSolid, setNavSolid] = useState(false);
 
   /* ── scroll reader ── */
   useEffect(() => {
@@ -159,18 +109,18 @@ export default function Projects() {
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       rawRef.current = clamp(-rect.top / total);
-      setNavSolid(window.scrollY > 40);
+      setP(rawRef.current);
     };
     window.addEventListener("scroll", read, { passive: true });
     read();
     return () => window.removeEventListener("scroll", read);
   }, []);
 
-  /* ── 60 fps RAF lerp ── */
+  /* ── 60 fps smoothing ── */
   useLayoutEffect(() => {
     const tick = () => {
       const d = rawRef.current - smoothRef.current;
-      smoothRef.current += d * 0.072;   // smoothing factor
+      smoothRef.current += d * 0.07;
       setP(Math.abs(d) < 0.0002 ? rawRef.current : smoothRef.current);
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -178,39 +128,7 @@ export default function Projects() {
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  /* ══════════════════════════════════════════
-     SCROLL PHASES  (0 → 1)
-
-     0.00 – 0.12   HERO   cream bg, centered text
-     0.12 – 0.38   RISE   blue bg, FR card rises from behind (parallax)
-     0.38 – 0.60   STACK  dark bg, GRC reveals left→right, ESG peeks top-right
-     0.60 – 0.82   TEXT   "Clarity Speed Confidence" left, all images right
-     0.82 – 1.00   OUTRO  cream bg, right-side outro text
-  ══════════════════════════════════════════ */
-
-  /* ── background ── */
-  const getBg = () => {
-    // hero state should start as blue overlay block (like the screenshot)
-    if (p <= 0.12) return "linear-gradient(120deg, #0f6bf2 0%, #0a44c5 100%)";
-    if (p <= 0.38) {
-      const t = easeInOut(prog(p, .12, .38));
-      return `linear-gradient(120deg, rgba(${~~lerp(15, 18, t)}, ${~~lerp(107, 108, t)}, ${~~lerp(242, 224, t)}, 1) 0%, rgba(${~~lerp(10, 24, t)}, ${~~lerp(68, 28, t)}, ${~~lerp(197, 36, t)}, 1) 100%)`;
-    }
-    if (p <= 0.58) {
-      const t = easeInOut(prog(p, .38, .58));
-      return `rgb(${~~lerp(18, 24, t)},${~~lerp(108, 28, t)},${~~lerp(224, 36, t)})`;
-    }
-    if (p <= 0.82) return "rgb(24,28,36)";
-    const t = easeInOut(prog(p, .82, 1));
-    return `rgb(${~~lerp(24, 242, t)},${~~lerp(28, 237, t)},${~~lerp(36, 230, t)})`;
-  };
-
-  const bg = getBg();
-  const bodyBg = p <= 0.12 ? "linear-gradient(120deg, #0f6bf2 0%, #0a44c5 100%)" : bg;
-
-  const isDark = p > 0.38 && p < 0.83;
-
-  // Dynamic content for three product modes: Audit, Case Management, GRC
+  /* ── PRODUCT MODES ── */
   const productModes = [
     {
       key: "audit",
@@ -218,13 +136,8 @@ export default function Projects() {
       headline: "Audit",
       subhead: "Findings, controls, and reporting in one flow.",
       button: "Explore Audit",
-    },
-    {
-      key: "case",
-      label: "Case Management",
-      headline: "Case",
-      subhead: "Track incidents, investigations, and remediations.",
-      button: "Explore Cases",
+      image: FR,
+      bg: "#0f6bf2",
     },
     {
       key: "grc",
@@ -232,311 +145,59 @@ export default function Projects() {
       headline: "GRC",
       subhead: "Governance, risk, and compliance across the enterprise.",
       button: "Explore GRC",
+      image: GRC,
+      bg: "#181c24",
+    },
+    {
+      key: "esg",
+      label: "ESG Platform",
+      headline: "ESG",
+      subhead: "Sustainability, corporate responsibility, and reporting.",
+      button: "Explore ESG",
+      image: ESG,
+      bg: "#18ee92",
     },
   ];
 
-  const modeIndex = Math.min(2, Math.max(0, Math.floor(prog(p, 0.52, 0.82) * 3)));
+  const modeIndex = Math.min(2, Math.max(0, Math.floor(prog(p, 0.33, 1) * 3)));
   const currentMode = productModes[modeIndex];
 
-  // Dynamic z-index and scale for each image based on current mode
-  const mainZ = 25;
-  const mainOp = p < 0.52 ? 1 : 0.5;
-  const frZ = p > 0.38 ? (modeIndex === 0 ? 15 : 5) : 15;
-  const frScaleExtra = modeIndex === 0 ? 1.1 : 1;
-  const grcZ = modeIndex === 2 ? 15 : 3;
-  const grcScaleExtra = modeIndex === 2 ? 1.1 : 1;
-  const esgZ = modeIndex === 1 ? 15 : 2;
-  const esgScaleExtra = modeIndex === 1 ? 1.1 : 1;
+  /* ── Background color transition ── */
+  const getBg = () => {
+    if (p < 0.33) return "#f9fafb"; // main dashboard
+    if (p < 0.66) return productModes[0].bg; // first product
+    if (p < 0.9) return productModes[1].bg; // second product
+    return productModes[2].bg; // third product
+  };
 
-  /* ── hero text ── */
-  const heroOp = easeOut(1 - prog(p, .05, .18));
-
-  /* ════════════════
-     FR CARD (Image 1 - hero, scrolls from behind like parallax)
-     Phase 1: bottom of screen → rises up as bg turns blue
-     Phase 2: shifts to right side, shrinks into stack
-     Phase 3: fully in right stack position
-  ════════════════ */
-  const frRise = easeOut4(prog(p, .12, .42));  // rises from bottom
-  const frToRight = easeInOut(prog(p, .42, .64)); // moves right into stack
-  const frExit = easeInOut(prog(p, .82, .97));
-
-  // Y: starts at +16vh (more visible at load), rises to 0 by first phase
-  const frTransY = lerp(16, 0, frRise);  // vh
-  // X: starts centered (0), shifts right 28vw when stack forms
-  const frTransX = lerp(0, 28, frToRight);  // vw offset from center
-  // Scale: full → shrinks as it moves right
-  const frSc = lerp(lerp(0.82, 1, frRise), lerp(1, 0.74, frToRight), frToRight);
-  // Width: full-ish → narrower in stack
-  const frW = lerp(72, lerp(72, 56, frToRight), frToRight);  // vw
-  // Opacity: keep a strong baseline so card is always visible
-  const frOp = lerp(
-    lerp(0.45, 1, easeOut(prog(p, .00, .26))),
-    lerp(1, 0, frExit),
-    frExit
-  );
-  // Slight rotation when in stack
-  const frRot = lerp(0, 1.5, frToRight);
-  // Box-open clip: starts with nearly full pane on hero stage, then opens fully
-  const boxT = easeOut4(prog(p, .12, .36));
-  const clipTop = p <= 0.14 ? 8 : lerp(24, 0, easeOut(prog(p, .12, .32)));
-  const clipBot = p <= 0.14 ? 8 : lerp(24, 0, easeOut(prog(p, .12, .40)));  // lags = box opens down
-  const clipL = p <= 0.14 ? 6 : lerp(14, 0, easeOut4(prog(p, .12, .30)));
-  const clipR = p <= 0.14 ? 6 : lerp(14, 0, easeOut4(prog(p, .12, .30)));
-  const frClip = `inset(${clipTop}% ${clipR}% ${clipBot}% ${clipL}% round 18px)`;
-
-  /* ════════════════
-     GRC CARD (Image 2 - reveals as scroll)
-     Slides in from LEFT side with clip-wipe reveal
-  ════════════════ */
-  const grcT = easeOut(prog(p, .40, .62));
-  const grcOp = lerp(0, lerp(1, 0, frExit), grcT);
-  // Reveal wipe: clipPath slides from left, opens when GRC mode is active
-  const grcClipL = modeIndex === 2 ? lerp(100, 0, easeOut4(prog(p, 0.52, 0.82))) : 100;
-  const grcClip = `inset(0% 0% 0% ${grcClipL}% round 0px)`;
-  // Y parallax
-  const grcParY = (p - 0.55) * -30;
-
-  /* ════════════════
-     ESG CARD (Image 3 - reveals top-right, peeks in)
-     Slides in from TOP-RIGHT with clip wipe
-  ════════════════ */
-  const esgT = easeOut(prog(p, .50, .68));
-  const esgOp = lerp(0, lerp(1, 0, frExit), esgT);
-  // Reveal from top, opens when ESG mode is active
-  const esgClipTop = modeIndex === 1 ? lerp(100, 0, easeOut4(prog(p, 0.52, 0.82))) : 100;
-  const esgClip = `inset(${esgClipTop}% 0% 0% 0% round 0px)`;
-  // X parallax (slight)
-  const esgParX = (p - 0.6) * 15;
-
-  /* ── AI Panel ── */
-  const aiT = easeOut(prog(p, .50, .66));
-  const aiOp = lerp(0, lerp(1, 0, frExit), aiT);
-  const aiY = lerp(40, 0, aiT);
-
-  /* ── Control Table ── */
-  const ctT = easeOut(prog(p, .56, .72));
-  const ctOp = lerp(0, lerp(1, 0, frExit), ctT);
-  const ctY = lerp(60, 0, ctT);
-
-  /* ── Left text ── */
-  const ltT = easeInOut(prog(p, .52, .72));
-  const ltOp = lerp(0, lerp(1, lerp(1, 0, easeInOut(prog(p, .85, 1))), 1), ltT);
-  const ltX = lerp(-5, 0, easeOut(prog(p, .52, .70)));
-
-  /* ── Outro text ── */
-  const outT = easeInOut(prog(p, .86, 1));
-  const outX = lerp(5, 0, easeOut(prog(p, .86, 1)));
-  const outOp = outT;
-
-  /* ── right-panel parallax helper ── (subtle drift as you scroll) */
-  const drift = (depth) => (p - 0.6) * depth * -40;
-
-  /* make animated section appear as user scrolls */
-  const contentReveal = easeOut(prog(p, 0.08, 0.24));
+  const bg = getBg();
 
   return (
-    <div>
-      <style>{`
-        body { background: ${bodyBg} !important; }
-      `}</style>
+ <div ref={containerRef} className="relative font-sans" style={{ background: bg }}>
+      <div style={{ height: "400vh", position: "relative" }}>
+        {/* Sticky viewport */}
+        <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row overflow-hidden" style={{ background: bg, transition: "background 0.3s" }}>
 
-      {/* ══ STICKY SCROLL ZONE — 600vh ══ */}
-      <div ref={containerRef} style={{ height: "600vh", position: "relative" }}>
-        <div style={{
-          position: "sticky", top: 0, height: "100vh", overflow: "hidden",
-          background: getBg(), transition: "none",
-        }}>
-
-          {/* scroll progress line */}
-          <div style={{
-            position: "absolute", top: 0, left: 0, height: 3, zIndex: 500,
-            width: `${p * 100}%`,
-            background: "linear-gradient(90deg,#1a73e8,#34a853,#f0a500)",
-            borderRadius: "0 2px 2px 0",
-          }} />
-
-
-
-          {/* ══════════════════════════════
-              RIGHT IMAGE PANEL
-              (holds GRC, ESG, AI panel, control table)
-              left:42% keeps it to the right half
-          ══════════════════════════════ */}
-          <div style={{
-            position: "absolute",
-            left: "42%", top: 0, right: 0, bottom: 0,
-            zIndex: 10, overflow: "hidden",
-            opacity: contentReveal,
-            transform: `scale(${lerp(0.92, 1, contentReveal)})`,
-            transition: "opacity .25s ease, transform .25s ease",
+          {/* LEFT TEXT PANEL */}
+          <div className="md:w-1/2 p-10 md:p-20 flex flex-col justify-center text-white" style={{
+            opacity: easeOut(prog(p, 0.1, 0.9)),
+            transform: `translateX(${lerp(-50, 0, easeOut(prog(p, 0.1, 0.9)))}px)`,
+            transition: "opacity 0.3s, transform 0.3s",
           }}>
-
-            {/* ── GRC — main back layer, clip-wipes from left ── */}
-            <div style={{
-              position: "absolute",
-              left: modeIndex === 2 ? "10%" : "-2%",
-              top: modeIndex === 2 ? "5%" : "4%",
-              width: modeIndex === 2 ? "80%" : "92%",
-              opacity: grcOp,
-              clipPath: grcClip,
-              transform: `translateY(${grcParY}px) scale(${grcScaleExtra})`,
-              zIndex: grcZ,
-              borderRadius: 18, overflow: "hidden",
-              boxShadow: "0 28px 90px rgba(0,0,0,.55)",
-              border: "1.5px solid rgba(255,255,255,.07)",
-              willChange: "clip-path,transform",
-            }}>
-              <ChromeBar url="workiva.com / risk-compliance" />
-              <img src={GRC} alt="GRC Platform" />
-            </div>
-
-            {/* ── ESG — top-right peek, clip-wipes from top ── */}
-            <div style={{
-              position: "absolute",
-              left: modeIndex === 1 ? "15%" : "-1%",
-              top: modeIndex === 1 ? "10%" : "-1%",
-              right: modeIndex === 1 ? "15%" : "-1%",
-              width: modeIndex === 1 ? "70%" : "46%",
-              opacity: esgOp,
-              clipPath: esgClip,
-              transform: `translateX(${esgParX}px) translateY(${drift(0.3)}px) scale(${esgScaleExtra})`,
-              zIndex: esgZ,
-              borderRadius: 14, overflow: "hidden",
-              boxShadow: "0 20px 70px rgba(0,0,0,.45)",
-              border: "1px solid rgba(255,255,255,.08)",
-              willChange: "clip-path,transform",
-            }}>
-              <div style={{ background: "#1c2333", padding: "7px 12px", display: "flex", gap: 5, alignItems: "center" }}>
-                <MacDots />
-                <div style={{ flex: 1, background: "#252d40", borderRadius: 3, padding: "3px 9px", marginLeft: 4 }}>
-                  <span style={{ fontSize: 9, color: "rgba(255,255,255,.28)", fontFamily: "'DM Sans',sans-serif" }}>workiva.com / sustainability</span>
-                </div>
-              </div>
-              <img src={ESG} alt="ESG Platform" />
-            </div>
-
-            {/* ── AI Panel ── */}
-            <div style={{
-              position: "absolute",
-              left: "4%", top: `${18}%`,
-              zIndex: 7,
-              opacity: aiOp,
-              transform: `translateY(${aiY + drift(0.8)}px) scale(${lerp(0.9, 1, aiT)})`,
-              transformOrigin: "top left",
-              willChange: "transform,opacity",
-            }}>
-              <AIPanel />
-            </div>
-
-            {/* ── Control Table — rises from bottom ── */}
-            <div style={{
-              position: "absolute",
-              left: "2%", bottom: "5%",
-              zIndex: 8,
-              opacity: ctOp,
-              transform: `translateY(${ctY + drift(0.9)}px)`,
-              willChange: "transform,opacity",
-            }}>
-              <ControlTable />
-            </div>
-
-          </div>{/* /right panel */}
-
-          {/* ══════════════════════════════
-              MAIN IMAGE — default hero image
-              Always visible, fades slightly in text phase
-          ══════════════════════════════ */}
-          <div style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            width: "72vw",
-            transform: "translate(-50%, -50%) scale(1)",
-            zIndex: mainZ,
-            opacity: mainOp,
-            clipPath: frClip,
-            willChange: "opacity, clip-path",
-          }}>
-
+            <p className="uppercase tracking-widest mb-4">{currentMode.label}</p>
+            <h2 className="text-5xl md:text-6xl font-extrabold mb-4">{currentMode.headline}.<br />{currentMode.subhead}</h2>
+            <button className="bg-blue-600 px-8 py-4 rounded-full font-bold shadow-lg">{currentMode.button}</button>
           </div>
 
-          {/* ══════════════════════════════
-              FR CARD — hero image
-              Rises from below (parallax from behind)
-              Then shifts into right stack
-          ══════════════════════════════ */}
-          <div style={{
-            position: "absolute",
-            // When rising: centered. When stacked: right side
-            left: lerp(50, 70, frToRight) + "%",
-            top: "50%",
-            width: frW + "vw",
-            transform: `
-              translate(-50%, calc(-50% + ${frTransY}vh))
-              translateX(${frTransX * 0}vw)
-              rotate(${frRot}deg)
-              scale(${frSc * frScaleExtra})
-            `,
-            transformOrigin: "center center",
-            zIndex: frZ,
-            opacity: frOp,
-            clipPath: frClip,
-            willChange: "transform, opacity, clip-path",
-          }}>
-            <div style={{
-              background: "#0f1117", borderRadius: 22,
-              padding: "11px 11px 0",
-              boxShadow: "0 50px 150px rgba(0,0,0,.85), 0 0 0 1.5px rgba(255,255,255,.06)",
-            }}>
-              <ChromeBar url="workiva.com / financial-reporting" />
-              <img src={mainimage} alt="Financial Reporting Dashboard" />
+          {/* RIGHT IMAGE PANEL */}
+          <div className="md:w-1/2 p-10 md:p-20 flex justify-center items-center">
+            <div className="relative w-full h-full">
+              <img src={currentMode.image} alt={currentMode.headline} className="rounded-2xl shadow-2xl w-full max-w-lg" />
             </div>
           </div>
 
-          {/* ══════════════════════════════
-              LEFT TEXT — Dynamic product mode
-          ══════════════════════════════ */}
-          <div style={{
-            position: "absolute",
-            left: `${ltX}vw`,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 25,
-            opacity: ltOp,
-            pointerEvents: ltOp < 0.05 ? "none" : "auto",
-            paddingLeft: "5vw",
-            width: "42%",
-          }}>
-            <p style={{
-              fontSize: 11, fontWeight: 700, letterSpacing: 2.5,
-              color: isDark ? "rgba(255,255,255,.45)" : "rgba(0,0,0,.38)",
-              textTransform: "uppercase", marginBottom: 20,
-              transition: "color .5s",
-            }}>{currentMode.label}</p>
-            <h2 style={{
-              fontSize: "clamp(3.6rem,6vw,5.8rem)",
-              fontWeight: 900, lineHeight: .92,
-              color: isDark && p < 0.86 ? "#ffffff" : "#1a1a1a",
-              marginBottom: 22, letterSpacing: "-2.5px",
-              transition: "color .5s ease",
-            }}>
-              {currentMode.headline}.<br />{currentMode.subhead}
-            </h2>
-            <button style={{
-              background: isDark ? "#1a73e8" : "#0b6df7", color: "#fff", border: "none",
-              padding: "14px 34px", borderRadius: 24,
-              fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15,
-              cursor: "pointer", boxShadow: "0 6px 22px rgba(26,115,232,.36)",
-            }}>{currentMode.button}</button>
-          </div>
-
-
-        </div>{/* /sticky */}
-      </div>{/* /scroll zone */}
-
-
+        </div>
+      </div>
     </div>
-
   );
 }

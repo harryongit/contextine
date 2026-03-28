@@ -15,11 +15,13 @@ function HomeSection() {
       <Hero />
 
       <BeforeAndAfter />
+      <StatsTestimonials />
       <FeaturesProvide />
+      <ShowWhyYouNeed />
       <Projects />
 
-      <StatsTestimonials />
-      <ShowWhyYouNeed />
+
+
       {/* <ShowWhyYouNeedsection /> */}
       <GrowthStories />
       <Blog />
