@@ -11,8 +11,7 @@ export default function DocsHero() {
   const shapeY4 = useTransform(scrollYProgress, [0, 1], [-30, 40]);
 
   return (
-    <div ref={containerRef} className="bg-[#D3E1E2] pt-28 pb-20 md:pt-40 md:pb-32 font-sans relative overflow-hidden">
-
+    <div ref={containerRef} className="bg-[#D3E1E2] pt-16 pb-12 md:pt-24 md:pb-16 font-sans relative overflow-hidden">
       {/* Background ambient doodle */}
       <motion.div style={{ y: shapeY1 }} className="absolute top-[30%] text-[#aabcc0] pointer-events-none opacity-40 z-0">
         <svg width="600" height="400" viewBox="0 0 600 400" fill="none">
@@ -63,12 +62,12 @@ export default function DocsHero() {
       </div>
 
       {/* Container wrapper */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between min-h-[460px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between min-h-[350px]">
 
         {/* Left Content */}
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="md:w-[48%] z-10 mb-12 md:mb-0 md:pr-14 self-start md:mt-4">
-          <h2 className="text-[2.75rem] sm:text-[3.5rem] md:text-[4rem] font-extrabold text-[#0B1521] mb-6 leading-[1.1] font-sans tracking-tight">Our vision</h2>
-          <p className="text-[#202939] text-[1.1rem] md:text-[1.15rem] font-medium leading-[1.6]">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="md:w-[48%] z-10 mb-10 md:mb-0 md:pr-10 self-start md:mt-2">
+          <h2 className="text-[2.25rem] sm:text-[2.8rem] md:text-[3.2rem] font-extrabold text-[#0B1521] mb-5 leading-[1.05] font-sans tracking-tight">Our vision</h2>
+          <p className="text-[#202939] text-[0.95rem] md:text-[1rem] font-medium leading-[1.5]">
             We help small startups and brands to get better exposure through different social media channels.
             Meet the best network distribution today.
           </p>

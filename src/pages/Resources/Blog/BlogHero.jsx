@@ -16,7 +16,7 @@ export default function BlogHero() {
   return (
     <div
       ref={containerRef}
-      className="bg-[#D3E1E2] pt-28 pb-20 md:pt-40 md:pb-32 font-sans relative overflow-hidden"
+      className="bg-[#D3E1E2] pt-16 pb-12 md:pt-24 md:pb-16 font-sans relative overflow-hidden"
     >
 
       {/* Background Doodle */}
@@ -82,13 +82,13 @@ export default function BlogHero() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="md:w-[48%] mb-12 md:mb-0 md:pr-14"
+          className="md:w-[48%] mb-10 md:mb-0 md:pr-14"
         >
-          <h1 className="text-[2.8rem] sm:text-[3.5rem] md:text-[4rem] font-extrabold text-[#0B1521] mb-6 leading-[1.1] tracking-tight">
+          <h1 className="text-[2.2rem] sm:text-[2.8rem] md:text-[3.2rem] font-extrabold text-[#0B1521] mb-5 leading-[1.1] tracking-tight">
             Blog & Insights
           </h1>
 
-          <p className="text-[#202939] text-[1.1rem] md:text-[1.2rem] font-medium leading-[1.7]">
+          <p className="text-[#202939] text-[0.95rem] md:text-[1.05rem] font-medium leading-[1.6]">
             Stay ahead with actionable insights, expert perspectives, and practical strategies.
             Explore articles designed to help modern professionals make smarter decisions,
             improve workflows, and adapt to a rapidly evolving digital landscape.

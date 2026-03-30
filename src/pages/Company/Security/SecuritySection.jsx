@@ -1,4 +1,3 @@
-import SecurityHero from './SecurityHero.jsx'
 import GrowthStories from '../../Home/GrowthStories.jsx'
 import CtaSection from '../../Home/CtaSection.jsx'
 import Blog from '../../Home/Blog.jsx'
@@ -9,11 +8,12 @@ import SecurityFourth from './SecurityFourth.jsx'
 import SecurityFifth from './SecurityFifth.jsx'
 import SecuritySixth from './SecuritySixth.jsx'
 import SecuritySeventh from './SecuritySeventh.jsx'
+import HeroSectionCompany from '../HeroSectionCompany';
 
 function SecuritySection() {
     return (
         <>
-            <SecurityHero />
+            <HeroSectionCompany type="security" />
             <SecurityFirst />
             <SecuritySecond />
             <SecurityThird />

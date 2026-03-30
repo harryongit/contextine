@@ -1,11 +1,30 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, useRef } from "react";
 
 export default function BeforeAndAfter() {
   const [active, setActive] = useState(false);
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // When the section is roughly in the middle of the viewport, switch to 'After'
+    // This creates an "automatic" feel as the user scrolls
+    if (latest > 0.38) {
+      setActive(true);
+    } else if (latest < 0.3) {
+      setActive(false);
+    }
+  });
 
   return (
-    <section className="bg-[#050B3D] pt-12 pb-32 text-white relative isolate overflow-hidden">
+    <section
+      ref={containerRef}
+      className="bg-[#050B3D] pt-12 pb-32 text-white relative isolate overflow-hidden"
+    >
       {/* Dynamic Background Noise / Blur effects */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
 
