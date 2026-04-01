@@ -55,10 +55,190 @@ const heroConfigs = {
             footer: "Certified Secure",
             color: "#f59e0b"
         }
+    },
+    glossary: {
+        badge: "Knowledge Base",
+        heading: <>Security & <br /> Compliance Glossary</>,
+        description: "Demystifying the world of GRC, Cybersecurity, and Privacy. Explore our comprehensive collection of terms to build your security literacy.",
+        images: [
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+            "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
+            "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8"
+        ],
+        stats: {
+            percentage: 100,
+            label: "Terms Defined",
+            sublabel: "Active Directory",
+            footer: "Always Updated",
+            color: "#1d4ed8"
+        }
+    },
+    'framework-guides': {
+        badge: "Step-by-Step",
+        heading: <>Framework <br /> Implementation Guides</>,
+        description: "Accelerate your path to certification with actionable workflows and expert check-lists for SOC 2, ISO 27001, HIPAA, and more.",
+        images: [
+            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+            "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d",
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+        ],
+        stats: {
+            percentage: 100,
+            label: "Audit Ready",
+            sublabel: "Framework Range",
+            footer: "Expert Verified",
+            color: "#854d0e"
+        }
+    },
+    soc2: {
+        badge: "Trust Standard",
+        heading: <>SOC 2 <br /> Compliance Suite</>,
+        description: "Automate your Service Organization Control (SOC 2) Type I & II audits with real-time evidence collection and continuous monitoring.",
+        images: [
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3",
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4"
+        ],
+        stats: {
+            percentage: 98,
+            label: "Audit Success",
+            sublabel: "Customer Base",
+            footer: "Trust Services",
+            color: "#6366f1"
+        }
+    },
+    iso27001: {
+        badge: "Global Standard",
+        heading: <>ISO 27001 <br /> ISMS Automation</>,
+        description: "Scale your Information Security Management System (ISMS) globally. Align with international security best practices seamlessly.",
+        images: [
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3",
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
+        ],
+        stats: {
+            percentage: 95,
+            label: "Global Adoption",
+            sublabel: "Framework fit",
+            footer: "ISO Certified",
+            color: "#10b981"
+        }
+    },
+    gdpr: {
+        badge: "Privacy First",
+        heading: <>GDPR <br /> Data Protection</>,
+        description: "Stay ahead of EU data privacy regulations. Manage data subject requests, DPIAs, and cross-border transfers effortlessly.",
+        images: [
+            "https://images.unsplash.com/photo-1504711434969-e33886168f5c",
+            "https://images.unsplash.com/photo-1495020689067-958852a7735e",
+            "https://images.unsplash.com/photo-1585829365234-752ffdf47d84",
+            "https://images.unsplash.com/photo-1574944966950-816d78a9c58a"
+        ],
+        stats: {
+            percentage: 100,
+            label: "Privacy Compliance",
+            sublabel: "Data Security",
+            footer: "EU Standards",
+            color: "#ef4444"
+        }
+    },
+    pcidss: {
+        badge: "Payment Security",
+        heading: <>PCI DSS <br /> Data Protection</>,
+        description: "Secure your cardholder data environment. Automate SAQ-D audits and maintain continuous compliance for payment processing.",
+        images: [
+            "https://images.unsplash.com/photo-1563986768702-3f86f77348e3",
+            "https://images.unsplash.com/photo-1556742044-3c52d6e88c62",
+            "https://images.unsplash.com/photo-1556742111-a301076d9d18",
+            "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1"
+        ],
+        stats: {
+            percentage: 99,
+            label: "Transaction Security",
+            sublabel: "Fintech Trust",
+            footer: "PCI Compliant",
+            color: "#3b82f6"
+        }
+    },
+    hipaa: {
+        badge: "Health Privacy",
+        heading: <>HIPAA <br /> Compliance Hub</>,
+        description: "Protect patient health information (PHI). Scale your healthcare technology while meeting stringent US federal privacy laws.",
+        images: [
+            "https://images.unsplash.com/photo-1538108149393-fdfd818d59ae",
+            "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+            "https://images.unsplash.com/photo-1505751172876-fa1923c5c528",
+            "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d"
+        ],
+        stats: {
+            percentage: 100,
+            label: "PHI Protection",
+            sublabel: "Healthcare",
+            footer: "Audit-Ready",
+            color: "#1d4ed8"
+        }
+    },
+    'nist-ai': {
+        badge: "Next-Gen AI",
+        heading: <>NIST AI <br /> Risk Management</>,
+        description: "Govern your AI initiatives with confidence. Align your machine learning models with the NIST AI RMF for trustworthy innovation.",
+        images: [
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+            "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
+            "https://images.unsplash.com/photo-1531297484001-80022131f5a1"
+        ],
+        stats: {
+            percentage: 90,
+            label: "AI Governance",
+            sublabel: "Risk Framework",
+            footer: "Future Proof",
+            color: "#8b5cf6"
+        }
+    },
+    custom: {
+        badge: "Flexible GRC",
+        heading: <>Custom <br /> Compliance Hub</>,
+        description: "Create your own controls and frameworks. Map tailored requirements to our automation engine for unique industry needs.",
+        images: [
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+            "https://images.unsplash.com/photo-1507924538820-ede94a04019d",
+            "https://images.unsplash.com/photo-1553484771-047a44eee27b",
+            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+        ],
+        stats: {
+            percentage: 100,
+            label: "Custom Logic",
+            sublabel: "Tailored fit",
+            footer: "Dynamic GRC",
+            color: "#d946ef"
+        }
+    },
+    'all-frameworks': {
+        badge: "Full Access",
+        heading: <>Library of 60+ <br /> Compliance Hubs</>,
+        description: "Explore our complete library of supported frameworks. From local privacy laws to international standards, we have you covered.",
+        images: [
+            "https://images.unsplash.com/photo-1516321497487-e288fb19713f",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+        ],
+        stats: {
+            percentage: 100,
+            label: "Market Coverage",
+            sublabel: "Global Reach",
+            footer: "Unified GRC",
+            color: "#374151"
+        }
     }
 };
 
-export default function HeroSectionCompany({ type = "about" }) {
+export default function HeroSectionResources({ type = "about" }) {
     const containerRef = useRef(null);
     const config = heroConfigs[type] || heroConfigs.about;
 

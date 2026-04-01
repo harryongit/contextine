@@ -41,7 +41,7 @@ const heroConfigs = {
     security: {
         badge: "Trust Center",
         heading: <>Premium Data <br /> Protection First</>,
-        description: "Your trust is our most valuable asset. We use industry-leading encryption and security protocols to keep your information safe 24/7.",
+        description: "Your trust is our most valuable  asset. We use industry-leading encryption and security protocols to keep your information safe 24/7.",
         images: [
             "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
             "https://images.unsplash.com/photo-1563986768609-322da13575f3",
@@ -54,6 +54,60 @@ const heroConfigs = {
             sublabel: "Infrastructure",
             footer: "SOC2 Type II",
             color: "#f59e0b"
+        }
+    },
+    Newsroom: {
+        badge: "Press & Media",
+        heading: <>Sharing the Future <br /> of GRC with You</>,
+        description: "Stay up to date with the latest press releases, media mentions, and major milestones from the Contextine team.",
+        images: [
+            "https://images.unsplash.com/photo-1504711434969-e33886168f5c",
+            "https://images.unsplash.com/photo-1585829365234-752ffdf47d84",
+            "https://images.unsplash.com/photo-1495020689067-958852a7735e",
+            "https://images.unsplash.com/photo-1574944966950-816d78a9c58a"
+        ],
+        stats: {
+            percentage: 85,
+            label: "Media Coverage",
+            sublabel: "Global reach",
+            footer: "Brand Trust",
+            color: "#ef4444"
+        }
+    },
+    Partners: {
+        badge: "Ecosystem",
+        heading: <>Building a Better <br /> Security Network</>,
+        description: "Join our network of world-class technology and consulting partners to help businesses achieve compliance faster and smarter.",
+        images: [
+            "https://images.unsplash.com/photo-1556761175-b413da4baf72",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998"
+        ],
+        stats: {
+            percentage: 95,
+            label: "Partner Growth",
+            sublabel: "Global Network",
+            footer: "Mutual Success",
+            color: "#10b981"
+        }
+    },
+    Contact: {
+        badge: "Get in Touch",
+        heading: <>We’d Love to <br /> Hear From You</>,
+        description: "Have questions about our platform or want to see a personalized demo? Our team is ready to help you navigate your compliance journey.",
+        images: [
+            "https://images.unsplash.com/photo-1523240795612-9a054b096818",
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+            "https://images.unsplash.com/photo-1549923746-c50264f39a18",
+            "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6"
+        ],
+        stats: {
+            percentage: 98,
+            label: "Response Rate",
+            sublabel: "Under 2 hours",
+            footer: "Support Score",
+            color: "#3b82f6"
         }
     }
 };

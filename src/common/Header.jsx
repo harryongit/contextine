@@ -112,8 +112,8 @@ export default function Header() {
           { title: "NIST AI RMF", icon: Cpu, id: "nist-ai" },
         ],
         featured: [
-          { title: "Custom Frameworks", desc: "Build compliance your way.", icon: Settings2 },
-          { title: "All Frameworks", desc: "60+ frameworks, right out the box", icon: Shield }
+          { title: "Custom Frameworks", desc: "Build compliance your way.", icon: Settings2, href: "/frameworks/custom" },
+          { title: "All Frameworks", desc: "60+ frameworks, right out the box", icon: Shield, href: "/frameworks/all" }
         ]
       },
     ],
@@ -182,9 +182,10 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link to="/login" className="hidden sm:block text-sm font-medium text-white/80 hover:text-white transition">Sign In</Link>
             <Button variant="secondary" size="lg" className="shadow-lg shadow-accent/10">
-              Book a Demo
+              <Link to="/contact" className="no-underline">
+                Request a Demo
+              </Link>
             </Button>
           </div>
         </div>
@@ -313,30 +314,35 @@ export default function Header() {
 
                     <div className="col-span-2 flex flex-col gap-6">
                       {/* Featured Cards */}
-                      <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer group">
-                        <div className="flex items-center gap-4 mb-2">
-                          <div className="p-2 rounded bg-accent/20">
-                            <Settings2 className="h-5 w-5 text-accent" />
-                          </div>
-                          <h4 className="font-bold text-white">Custom Frameworks</h4>
-                        </div>
-                        <p className="text-sm text-white/50 px-12">Build compliance your way.</p>
-                      </div>
+                      {menus[activeMenu][2].featured.map((feat, i) => {
+                        const Icon = feat.icon;
+                        return (
+                          <Link
+                            key={i}
+                            to={feat.href}
+                            className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer group no-underline relative overflow-hidden"
+                          >
+                            <div className="flex items-center gap-4 mb-2">
+                              <div className="p-2 rounded bg-accent/20">
+                                <Icon className="h-5 w-5 text-accent" />
+                              </div>
+                              <h4 className="font-bold text-white group-hover:text-accent transition-colors">
+                                {feat.title}
+                              </h4>
+                            </div>
+                            <p className="text-sm text-white/50 px-12 leading-relaxed">
+                              {feat.desc}
+                            </p>
 
-                      <div className="p-6 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:bg-white/10 transition-all cursor-pointer group relative overflow-hidden h-full min-h-[180px]">
-                        <div className="flex items-center gap-4 mb-2">
-                          <div className="p-2 rounded bg-accent/20">
-                            <Shield className="h-5 w-5 text-accent" />
-                          </div>
-                          <h4 className="font-bold text-white">All Frameworks</h4>
-                        </div>
-                        <p className="text-sm text-white/50 px-12 mb-6">60+ frameworks, right out the box</p>
-
-                        {/* Design Element from image */}
-                        <div className="absolute -bottom-8 -right-8 w-48 h-48 opacity-20 group-hover:opacity-40 transition-opacity">
-                          <div className="w-full h-full border-2 border-accent rounded-full border-dashed animate-spin-slow"></div>
-                        </div>
-                      </div>
+                            {/* Optional Design Element for the second item */}
+                            {i === 1 && (
+                              <div className="absolute -bottom-8 -right-8 w-48 h-48 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none">
+                                <div className="w-full h-full border-2 border-accent rounded-full border-dashed animate-spin-slow"></div>
+                              </div>
+                            )}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

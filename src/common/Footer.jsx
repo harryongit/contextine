@@ -1,6 +1,8 @@
-import { Linkedin, Twitter, Youtube, Facebook, Instagram, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Youtube, Facebook, Instagram, ShieldCheck, ArrowUpRight, Send } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import logo from "../assets/logo3.png";
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -30,12 +32,12 @@ export default function Footer() {
     }
   };
 
-  const FooterLink = ({ children }) => (
+  const FooterLink = ({ children, to = "#" }) => (
     <li>
-      <a href="#" className="group flex items-center gap-2 text-slate-500 hover:text-teal-600 transition-colors duration-200 tracking-tight">
+      <Link to={to} className="group flex items-center gap-2 text-slate-500 hover:text-[#1A4A85] transition-colors duration-200 tracking-tight no-underline">
         <span>{children}</span>
-        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300 text-teal-500" />
-      </a>
+        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300 text-[#1A4A85]" />
+      </Link>
     </li>
   );
 
@@ -49,13 +51,13 @@ export default function Footer() {
     <footer ref={footerRef} className="bg-white pt-24 pb-0 font-sans border-t border-slate-100 relative overflow-hidden text-slate-900">
 
       {/* 🎨 Abstract Premium Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-[-100px] w-[800px] h-[500px] bg-blue-50/80 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-[-100px] w-[800px] h-[500px] bg-indigo-50/80 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* ✍️ Professional Subtle Tech Doodles Background */}
+      {/* ✍️ Professional Subtle Tech Doodles Background (Color matched to logo) */}
       <motion.div
         style={{ y: doodleY }}
-        className="absolute top-[-50px] right-[-100px] opacity-[0.035] pointer-events-none text-slate-900"
+        className="absolute top-[-50px] right-[-100px] opacity-[0.035] pointer-events-none text-[#1A4A85]"
       >
         <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Animated Connecting Lines */}
@@ -68,79 +70,63 @@ export default function Footer() {
             d="M50 400 Q 250 300 400 500 T 750 400" stroke="currentColor" strokeWidth="5" fill="none" strokeLinecap="round"
           />
           <path d="M250 50 Q 350 150 450 50" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" fill="none" />
-
-          {/* Sketchy Stars */}
           <path d="M400 120 L408 140 L430 140 L412 155 L418 175 L400 162 L382 175 L388 155 L370 140 L392 140 Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-          <path d="M600 250 L605 260 L615 260 L607 267 L610 277 L600 270 L590 277 L593 267 L585 260 L595 260 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-
-          {/* Floating Checkmark Boxes */}
-          <motion.g
-            animate={{ rotate: 12, y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            transform="rotate(12 270 300)"
-          >
+          <motion.g animate={{ rotate: 12, y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} transform="rotate(12 270 300)">
             <rect x="250" y="280" width="50" height="50" rx="10" stroke="currentColor" strokeWidth="4" />
             <path d="M262 305 L270 315 L285 295" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
           </motion.g>
-
-          <motion.g
-            animate={{ rotate: -15, y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            transform="rotate(-15 650 150)"
-          >
-            <rect x="630" y="130" width="40" height="40" rx="8" stroke="currentColor" strokeWidth="3" />
-            <path d="M640 150 L645 155 L655 142" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </motion.g>
-
-          {/* Scribbles and squiggles */}
-          <path d="M500 280 Q 520 260 510 290 T 530 285 T 525 310" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
-
-          {/* Nodes */}
           <circle cx="550" cy="200" r="14" stroke="currentColor" strokeWidth="4" />
-          <circle cx="750" cy="350" r="10" stroke="currentColor" strokeWidth="4" />
-          <circle cx="100" cy="200" r="8" stroke="currentColor" strokeWidth="4" />
         </svg>
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
 
-        {/* Top Section: Logo & Badges */}
-        <motion.div
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}
-          className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-20 gap-12"
-        >
+        {/* Top Section: Logo & Newsletter */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 mb-20 items-start">
           {/* Logo & Description */}
-          <motion.div variants={popUp}>
+          <motion.div variants={popUp} initial="hidden" animate="visible" className="xl:col-span-4">
             <div className="flex items-center gap-3">
-              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm8.5 27.5L20 33l-8.5-5.5V16L20 10.5l8.5 5.5v11.5z" fill="#0ea5e9" />
-                <path d="M20 13l-6 4v7l6 4 6-4v-7l-6-4z" fill="#14b8a6" />
-              </svg>
-              <span className="text-3xl font-bold tracking-tight text-slate-900 select-none">
+              <img src={logo} className="h-10 w-10 object-contain" alt="logo" />
+              <span className="text-3xl font-bold tracking-tight text-[#0B1521] select-none">
                 Contextine
               </span>
             </div>
             <p className="mt-5 text-slate-500 text-[15px] font-medium max-w-sm leading-relaxed">
               The modern, security-first GRC platform built for teams that move fast. Automate evidence, simplify audits, and build securely from the start.
             </p>
+
+            {/* Minimal Socials Row */}
+            <div className="mt-8 flex items-center gap-5 text-slate-400">
+              <a href="#" className="hover:text-[#1A4A85] transition-colors"><Linkedin size={18} fill="currentColor" strokeWidth={0} /></a>
+              <a href="#" className="hover:text-[#1A4A85] transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></a>
+              <a href="#" className="hover:text-[#1A4A85] transition-colors"><Instagram size={18} /></a>
+            </div>
           </motion.div>
 
-          {/* Premium Light Badges */}
-          <motion.div variants={staggerContainer} className="flex flex-wrap gap-3 max-w-2xl justify-start xl:justify-end">
-            {["SOC 2", "GDPR", "CCPA", "ISO 27001", "ISO 27018", "ISO 27017", "ISO 27701", "ISO 42001"].map((badge) => (
-              <motion.div
-                variants={popUp}
-                key={badge}
-                className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-slate-200 hover:border-teal-400 hover:shadow-[0_4px_20px_rgba(20,184,166,0.1)] transition-all cursor-default"
-              >
-                <div className="bg-teal-50 p-1 rounded-full group-hover:bg-teal-100 transition-colors">
-                  <ShieldCheck className="w-3.5 h-3.5 text-teal-600 transition-colors" strokeWidth={2.5} />
-                </div>
-                <span className="text-[11px] font-bold tracking-widest text-slate-700 uppercase group-hover:text-slate-900 transition-colors mt-[1px]">
-                  {badge}
-                </span>
-              </motion.div>
-            ))}
+          {/* Newsletter Subscription */}
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} className="xl:col-span-8 bg-[#F8FAFC] border-2 border-[#0B1521] border-dashed rounded-[3rem] p-8 md:p-12 shadow-[8px_8px_0_0_#0B1521] relative overflow-hidden group">
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+              <div className="md:w-1/2">
+                <h3 className="text-2xl font-black text-[#0B1521] mb-2 uppercase tracking-tight">Stay <span className="text-[#1A4A85]">Risk-Ready</span></h3>
+                <p className="text-slate-500 font-medium">Join 5,000+ security pros receiving our weekly pulse on GRC & Audit automation.</p>
+              </div>
+              <div className="w-full md:w-1/2 relative group">
+                <input
+                  type="email"
+                  placeholder="Enter your work email"
+                  className="w-full bg-white border-2 border-[#0B1521] rounded-full py-4 pl-6 pr-16 font-bold text-[#0B1521] placeholder-slate-400 shadow-[4px_4px_0_0_#0B1521] focus:outline-none focus:shadow-[6px_6px_0_0_#1A4A85] transition-all"
+                />
+                <button className="absolute right-2 top-2 bottom-2 w-12 h-12 rounded-full bg-[#0B1521] text-white flex items-center justify-center hover:bg-[#1A4A85] transition-colors">
+                  <Send size={18} />
+                </button>
+              </div>
+            </div>
+            {/* Background Pattern */}
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03] pointer-events-none -rotate-12 translate-x-8 -translate-y-8">
+              <ShieldCheck size={120} />
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Divider */}
         <motion.div
@@ -158,18 +144,14 @@ export default function Footer() {
           <motion.div variants={popUp}>
             <FooterHeading>Platform</FooterHeading>
             <ul className="space-y-4 text-[14.5px] font-medium">
-              <FooterLink>Why Contextine</FooterLink>
-              <FooterLink>Explore the Platform</FooterLink>
-              <FooterLink>Simplify Compliance</FooterLink>
-              <FooterLink>Streamline Audits</FooterLink>
-              <FooterLink>Empower Your Employees</FooterLink>
-              <FooterLink>Monitor Cyber Risk</FooterLink>
-              <FooterLink>Assess Third-Party Risk</FooterLink>
-              <FooterLink>Validate User Privileges</FooterLink>
-              <FooterLink>Manage Asset Inventory</FooterLink>
-              <FooterLink>Demonstrate Trust</FooterLink>
-              <FooterLink>AI-Powered GRC</FooterLink>
-              <FooterLink>Integrate Your Tech Stack</FooterLink>
+              <FooterLink to="/platform/overview">Overview</FooterLink>
+              <FooterLink to="/platform/why-contextine">Why Contextine</FooterLink>
+              <FooterLink to="/products/audit-management">Audit Management</FooterLink>
+              <FooterLink to="/products/grc-platform">GRC Platform</FooterLink>
+              <FooterLink to="/features/risk-management">Risk Management</FooterLink>
+              <FooterLink to="/features/compliance-tracking">Compliance Tracking</FooterLink>
+              <FooterLink to="/features/workflow-automation">Workflow Automation</FooterLink>
+              <FooterLink to="/features/reporting-analytics">Reporting & Analytics</FooterLink>
             </ul>
           </motion.div>
 
@@ -177,81 +159,77 @@ export default function Footer() {
           <motion.div variants={popUp}>
             <FooterHeading>Frameworks</FooterHeading>
             <ul className="space-y-4 text-[14.5px] font-medium">
-              <FooterLink>SOC 2</FooterLink>
-              <FooterLink>ISO 27001</FooterLink>
-              <FooterLink>GDPR</FooterLink>
-              <FooterLink>PCI DSS</FooterLink>
-              <FooterLink>HIPAA</FooterLink>
-              <FooterLink>NIST AI RMF</FooterLink>
-              <FooterLink>Custom Frameworks</FooterLink>
-              <FooterLink>All Frameworks</FooterLink>
+              <FooterLink to="/frameworks/soc2">SOC 2</FooterLink>
+              <FooterLink to="/frameworks/iso27001">ISO 27001</FooterLink>
+              <FooterLink to="/frameworks/gdpr">GDPR</FooterLink>
+              <FooterLink to="/frameworks/pcidss">PCI DSS</FooterLink>
+              <FooterLink to="/frameworks/hipaa">HIPAA</FooterLink>
+              <FooterLink to="/frameworks/nist-ai">NIST AI RMF</FooterLink>
+              <FooterLink to="/frameworks/custom">Custom Frameworks</FooterLink>
+              <FooterLink to="/frameworks/all">All Frameworks</FooterLink>
             </ul>
           </motion.div>
 
-          {/* Column 3: Stages & Industry */}
+          {/* Column 3: Solutions */}
           <motion.div variants={popUp} className="space-y-12">
             <div>
-              <FooterHeading>Company Stages</FooterHeading>
+              <FooterHeading>Solutions</FooterHeading>
               <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>Startup</FooterLink>
-                <FooterLink>Growth</FooterLink>
-                <FooterLink>Enterprise</FooterLink>
+                <FooterLink to="/solutions/small-business">Small Business</FooterLink>
+                <FooterLink to="/solutions/enterprise">Enterprise</FooterLink>
+                <FooterLink to="/solutions/defense-contractors">Defense Contractors</FooterLink>
+                <FooterLink to="/solutions/compliance-teams">Compliance Teams</FooterLink>
+                <FooterLink to="/solutions/security-teams">Security Teams</FooterLink>
               </ul>
             </div>
             <div>
-              <FooterHeading>Industry</FooterHeading>
+              <FooterHeading>Security</FooterHeading>
               <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>Enterprise Software</FooterLink>
-                <FooterLink>Financial Services</FooterLink>
-                <FooterLink>Healthcare</FooterLink>
-                <FooterLink>Travel and Tourism</FooterLink>
-                <FooterLink>Education</FooterLink>
+                <FooterLink to="/security">Trust Center</FooterLink>
+                <FooterLink to="/features/risk-management">Cyber Risk</FooterLink>
+                <FooterLink to="/security">Data Privacy</FooterLink>
               </ul>
             </div>
           </motion.div>
 
-          {/* Column 4: Resources & Hubs */}
+          {/* Column 4: Resources */}
           <motion.div variants={popUp} className="space-y-12">
             <div>
-              <FooterHeading>Resources</FooterHeading>
+              <FooterHeading>Learning Center</FooterHeading>
               <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>Blog</FooterLink>
-                <FooterLink>Ebooks</FooterLink>
-                <FooterLink>Podcast</FooterLink>
-                <FooterLink>Success Stories</FooterLink>
-                <FooterLink>Webinars</FooterLink>
-                <FooterLink>Glossary</FooterLink>
-                <FooterLink>FAQs</FooterLink>
+                <FooterLink to="/blog">Blog</FooterLink>
+                <FooterLink to="/glossary">Glossary</FooterLink>
+                <FooterLink to="/guides">Framework Guides</FooterLink>
+                <FooterLink to="/faq">FAQs</FooterLink>
               </ul>
             </div>
             <div>
-              <FooterHeading>Hubs</FooterHeading>
+              <FooterHeading>Support</FooterHeading>
               <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>SOC 2 Hub</FooterLink>
-                <FooterLink>ISO 27001 Hub</FooterLink>
-                <FooterLink>HIPAA Hub</FooterLink>
-                <FooterLink>Explore All Hubs</FooterLink>
+                <FooterLink to="/help">Help Center</FooterLink>
+                <FooterLink to="/updates">Product Updates</FooterLink>
+                <FooterLink to="/contact">Live Support</FooterLink>
               </ul>
             </div>
           </motion.div>
 
-          {/* Column 5: Partners & Company */}
+          {/* Column 5: Company */}
           <motion.div variants={popUp} className="space-y-12">
-            <div>
-              <FooterHeading>Partners</FooterHeading>
-              <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>Become a Partner</FooterLink>
-                <FooterLink>Find a Partner</FooterLink>
-              </ul>
-            </div>
             <div>
               <FooterHeading>Company</FooterHeading>
               <ul className="space-y-4 text-[14.5px] font-medium">
-                <FooterLink>Customers</FooterLink>
-                <FooterLink>About</FooterLink>
-                <FooterLink>Careers</FooterLink>
-
-                <FooterLink>Security</FooterLink>
+                <FooterLink to="/about">About Us</FooterLink>
+                <FooterLink to="/careers">Careers</FooterLink>
+                <FooterLink to="/newsroom">Newsroom</FooterLink>
+                <FooterLink to="/customers">Customers</FooterLink>
+                <FooterLink to="/partners">Partners</FooterLink>
+              </ul>
+            </div>
+            <div>
+              <FooterHeading>Contact</FooterHeading>
+              <ul className="space-y-4 text-[14.5px] font-medium">
+                <FooterLink to="/contact">Contact Sales</FooterLink>
+                <FooterLink to="/contact">Request Demo</FooterLink>
               </ul>
             </div>
           </motion.div>
@@ -265,32 +243,14 @@ export default function Footer() {
         >
           {/* Light Theme Social Icons (Bare icons like screenshot) */}
           <div className="flex items-center gap-6 text-[#0f172a]">
-            {[
-              { icon: <Linkedin size={20} fill="currentColor" strokeWidth={0} /> },
-              { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg> },
-              { icon: <Youtube size={22} fill="currentColor" strokeWidth={0} /> },
-              { icon: <Facebook size={20} fill="currentColor" strokeWidth={0} /> },
-              { icon: <Instagram size={20} /> }
-            ].map((social, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                {social.icon}
-              </a>
-            ))}
-            {/* G2 Logo */}
-            <a href="#" className="hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 font-bold tracking-tighter text-lg leading-none pt-0.5">
-              G<span className="text-[11px] align-top">2</span>
-            </a>
+
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-[14.5px] text-slate-500 font-medium">
-            <a href="#" className="hover:text-teal-600 transition-colors">Trust</a>
-            <a href="#" className="hover:text-teal-600 transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-teal-600 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-teal-600 transition-colors">Cookies Policy</a>
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-[14.5px] text-slate-500 font-bold">
+            <Link to="/trust" className="hover:text-[#1A4A85] transition-colors no-underline">Trust</Link>
+            <Link to="/terms" className="hover:text-[#1A4A85] transition-colors no-underline">Terms of Use</Link>
+            <Link to="/privacy" className="hover:text-[#1A4A85] transition-colors no-underline">Privacy Policy</Link>
+            <Link to="/cookies" className="hover:text-[#1A4A85] transition-colors no-underline">Cookies Policy</Link>
           </div>
         </motion.div>
       </div>
